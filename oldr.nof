@@ -1,0 +1,596 @@
+# NooJ V3
+#
+# Inflectional/Derivational description
+# Author: Liubov Kovriguina
+# Institution: ITMO University
+#
+# Language is: ru
+#
+# Special Characters: '=' '<' '>' '\' '"' ':' '+' '/' '#' ';'
+#
+# Generic Commands:
+# <B>: keyboard Backspace
+# <C>: change Case
+# <D>: Duplicate current char
+# <E>: Empty string
+# <L>: keyboard Left arrow
+# <N>: go to end of Next word form
+# <P>: go to end of Previous word form
+# <R>: keyboard Right arrow
+# <S>: delete/Suppress current char
+# Arguments for commands <B>, <L>, <N>, <P>, <R>, <S>:
+# xx number: repeat xx times
+# W: whole word
+# Examples
+# <R3>: go right 3 times
+# <LW>: go to beg. of word
+#
+# Language-Specific Commands:
+# (None)
+
+# глаголы, настоящее время, без титла
+GLAGOLATI = <E>/inf | <B3>ю/1p+sg+praes | <B3>еши/2p+sg+praes | <B3>ешъ/2p+sg+praes | <B3>ешь/2p+sg+praes |
+<B3>ет/3p+sg+praes | <B3>етъ/3p+sg+praes | <B3>еть/3p+sg+praes | 
+<B3>ем/1p+pl+praes | <B3>емъ/1p+pl+praes | <B3>емь/1p+pl+praes | 
+<B3>ете/2p+pl+praes | <B3>ют/3p+pl+praes | <B3>ють/3p+pl+praes | <B3>ютъ/3p+pl+praes | 
+<B2>вэ/1p+dual+praes | <B2>ве/1p+dual+praes | <B2>та/2p+dual+praes  | <B2>та/3p+dual+praes  | 
+<B2>/3p+sg+aor; 
+
+# основы "на -а"
+A = <E>/nom+sg | <B>ы/gen+sg | <B>z/dat+sg | <B>е/dat+sg | <B>у/acc+sg | <B>u/acc+sg |<B>g/acc+sg |
+<B>ою/ins+sg | <B>wю/ins+sg | <B>wj/ins+sg | <B>оj/ins+sg | <B>y/loc+sg | <B>е/dat+sg | 
+<B>w/voc+sg | <B>о/voc+sg |
+<B>ы/nom+pl | <B>ъ/gen+pl | <B>амъ/dat+pl | <B>ы/acc+pl | <B>ами/ins+pl | <B>ахъ/loc+pl | <B>ы/voc+pl | 
+<B>z/nom+dual | <B>z/acc+dual | <B>z/voc+dual | 
+<B>u/gen+dual | <B>g/gen+dual | <B>у/gen+dual |<B>u/loc+dual | <B>g/loc+dual | <B>у/loc+dual | 
+<B>ама/dat+dual | <B>ама/ins+dual;
+
+#основы "на -а", тематическому основанию предшествует "к"
+K_A = <E>/nom+sg | <B>ы/gen+sg | <B2>цz/dat+sg | <B2>це/dat+sg | <B>у/acc+sg | <B>u/acc+sg |<B>g/acc+sg |
+<B>ою/ins+sg | <B>wю/ins+sg | <B>wj/ins+sg | <B>оj/ins+sg | <B2>цz/loc+sg | <B2>це/loc+sg | 
+<B>w/voc+sg | <B>о/voc+sg |
+<B>ы/nom+pl | <B>ъ/gen+pl | <B>амъ/dat+pl | <B>ы/acc+pl | <B>ами/ins+pl | <B>ахъ/loc+pl | <B>ы/voc+pl | 
+<B2>цz/nom+dual | <B2>цz/acc+dual | <B2>цz/voc+dual | 
+<B>u/gen+dual | <B>g/gen+dual | <B>у/gen+dual |<B>u/loc+dual | <B>g/loc+dual | <B>у/loc+dual | 
+<B>ама/dat+dual | <B>ама/ins+dual;
+
+#основы "на -а", тематическому основанию предшествует "г"
+G_A = <E>/nom+sg | <B>ы/gen+sg | <B2>sz/dat+sg | <B2>зе/dat+sg | <B>у/acc+sg | <B>u/acc+sg |<B>g/acc+sg |
+<B>ою/ins+sg | <B>wю/ins+sg | <B>wj/ins+sg | <B>оj/ins+sg | <B2>sz/loc+sg | <B2>зе/loc+sg | 
+<B>w/voc+sg | <B>о/voc+sg |
+<B>ы/nom+pl | <B>ъ/gen+pl | <B>амъ/dat+pl | <B>ы/acc+pl | <B>ами/ins+pl | <B>ахъ/loc+pl | <B>ы/voc+pl | 
+<B2>sz/nom+dual | <B2>sz/acc+dual | <B2>sz/voc+dual | <B2>зz/nom+dual | <B2>зz/acc+dual | <B2>зz/voc+dual | 
+<B>u/gen+dual | <B>g/gen+dual | <B>у/gen+dual |<B>u/loc+dual | <B>g/loc+dual | <B>у/loc+dual | 
+<B>ама/dat+dual | <B>ама/ins+dual;
+
+#основы "на -jа"
+JA = <E>/nom+sg | <B>y/gen+sg | <B>и/dat+sg | <B>j/acc+sg | <B>ю/acc+sg |
+<B>eю/ins+sg | <B>iеj/ins+sg | <B>еj/ins+sg | <B2>и/loc+sg | <B2>й/loc+sg | 
+<B>iе/voc+sg | <B>е/voc+sg |
+<B>y/nom+pl | <B>ь/gen+pl | <B>ямъ/dat+pl | <B>y/acc+pl | <B>ями/ins+pl | <B>яхъ/loc+pl | <B>y/voc+pl | 
+<B>и/nom+dual | <B>и/acc+dual | <B>и/voc+dual | 
+<B>ю/gen+dual |<B>ю/loc+dual | <B>g/loc+dual | 
+<B>яма/dat+dual | <B>яма/ins+dual | <B>rма/dat+dual | <B>rма/ins+dual;
+
+#основы "на -jа", тематическому окончанию предшествует "к->ц" ("девица")
+K_JA = <E>/nom+sg | <B>а/nom+sg | <B>y/gen+sg | <B>и/dat+sg | <B>j/acc+sg | <B>g/acc+sg | <B>u/acc+sg | <B>у/acc+sg |
+<B>eю/ins+sg | <B>еj/ins+sg | <B>и/loc+sg | <B>й/loc+sg | 
+<B>е/voc+sg | 
+<B>y/nom+pl | <B>ы/nom+pl | <B>ь/gen+pl | <B>ямъ/dat+pl | <B>амъ/dat+pl | <B>y/acc+pl | <B>ями/ins+pl | <B>ами/ins+pl | <B>яхъ/loc+pl | 
+<B>y/voc+pl | 
+<B>и/nom+dual | <B>и/acc+dual | <B>и/voc+dual | 
+<B>ю/gen+dual |<B>ю/loc+dual | <B>g/gen+dual | <B>g/loc+dual | 
+<B>яма/dat+dual | <B>яма/ins+dual | <B>rма/dat+dual | <B>rма/ins+dual;
+
+#основы на "и" краткое (ь), мужской род
+I_MASC = <E>/nom+sg | <B>и/gen+sg | <B>и/dat+sg | <B>ь/acc+sg | <B>ьмъ/ins+sg | <B>емъ/ins+sg | <B>и/loc+sg | <B>й/loc+sg | <B>и/voc+sg | 
+<B>ию/nom+pl | <B>ьiе/nom+pl | <B>ии/gen+pl | <B>ьи/gen+pl | <B>ьмъ/dat+pl | <B>и/acc+pl | <B>ьми/ins+pl | <B>ями/ins+pl | 
+<B>яхъ/loc+pl | <B>ьхъ/loc+pl | <B>ию/voc+pl | <B>ьiе/voc+pl |
+<B>и/nom+dual | <B>и/acc+dual | <B>и/voc+dual | 
+<B2>ию/gen+dual |<B2>ию/loc+dual | <B2>ью/gen+dual | <B2>ью/loc+dual | 
+<B>ьма/dat+dual | <B>ьма/ins+dual ;
+
+#основы на "и" краткое (ь), женский род
+I_FEM = <E>/nom+sg | <B>и/gen+sg | <B>и/dat+sg | <B>ь/acc+sg | <B>иj/ins+sg | <B>ьj/ins+sg | <B>и/loc+sg | <B>и/voc+sg | 
+<B>и/nom+pl | <B>ии/gen+pl | <B>ьи/gen+pl | <B>ьи/gen+pl | <B>ьмъ/dat+pl | <B>и/acc+pl | <B>ьми/ins+pl | <B>ями/ins+pl | 
+<B>яхъ/loc+pl | <B>ьхъ/loc+pl | <B>ию/voc+pl | <B>ьiе/voc+pl |
+<B>и/nom+dual | <B>и/acc+dual | <B>и/voc+dual | 
+<B2>ию/gen+dual |<B2>ию/loc+dual | <B2>ью/gen+dual | <B2>ью/loc+dual | 
+<B>ьма/dat+dual | <B>ьма/ins+dual ;
+
+#основы на "o" после мяг согласного, мужской род ("конь")
+SOFT_O_MASC = <E>/nom+sg | <B>я/gen+sg | <B>r/gen+sg | <B>ю/dat+sg | <E>/acc+sg | <B>емь/ins+sg | <B>iемь/ins+sg | <B>и/loc+sg | <B>ю/voc+sg |
+<B>и/nom+pl | <E>/gen+pl | <B>емъ/dat+pl | <B>y/acc+pl | <B>и/ins+pl | <B>ихъ/loc+pl | <B>и/voc+pl | 
+<B>я/nom+dual | <B>r/nom+dual | <B>я/acc+dual | <B>r/acc+dual | <B>я/voc+dual | <B>r/voc+dual |
+<B>ю/gen+dual | <B>ю/loc+dual |
+<B>ема/dat+dual | <B>iема/dat+dual | <B>ема/ins+dual | <B>iема/ins+dual ;
+
+#основы на "o", мужской род ("град")
+O_MASC = <E>ъ/nom+sg | <E>ь/nom+sg | <E>а/gen+sg | <E>у/dat+sg | <E>u/dat+sg | <E>g/dat+sg | <E>ъ/acc+sg | <E>ь/acc+sg | <E>омь/ins+sg | <E>омъ/ins+sg | <E>z/loc+sg | <E>е/loc+sg | <E>е/voc+sg |
+<E>и/nom+pl | <E>ъ/gen+pl | <E>ь/gen+pl | <E>омъ/dat+pl | <E>ы/acc+pl | <E>ы/ins+pl | <E>ехъ/loc+pl | <E>zхъ/loc+pl | <E>и/voc+pl |
+<E>а/nom+dual | <E>а/acc+dual |  <E>а/voc+dual |
+<E>u/gen+dual |<E>у/gen+dual | <E>g/gen+dual | <E>u/loc+dual |<E>у/loc+dual | <E>g/loc+dual | 
+<E>ома/dat+dual | <E>ома/ins+dual ;
+
+#основы на "o", мужской род, с беглым гласным ("ветер")
+VETER = <E>ъ/nom+sg | <E>ь/nom+sg | <B2>ра/gen+sg | <B2>ру/dat+sg | <B2>рu/dat+sg | <B2>рg/dat+sg | <B2>ръ/acc+sg | <B2>рь/acc+sg | <B2>ромь/ins+sg | <B2>ромъ/ins+sg | <B2>рz/loc+sg | <B2>ре/loc+sg | <B2>ре/voc+sg |
+<B2>ри/nom+pl | <B2>ръ/gen+pl | <B2>рь/gen+pl  | <B2>ромъ/dat+pl | <B2>ры/acc+pl | <B2>ры/ins+pl | <B2>рехъ/loc+pl | <B2>рzхъ/loc+pl | <B2>ри/voc+pl |
+<B2>ра/nom+dual | <B2>ра/acc+dual |  <B2>ра/voc+dual |
+<B2>рu/gen+dual |<B2>ру/gen+dual | <B2>рg/gen+dual | <B2>рu/loc+dual |<B2>ру/loc+dual | <B2>рg/loc+dual | 
+<B2>рома/dat+dual | <B2>рома/ins+dual ;
+
+#основы на "o" после "к", мужской род ("отрок")
+K_O_MASC = <E>ъ/nom+sg | <E>ь/nom+sg | <E>а/gen+sg | <E>у/dat+sg | <E>u/dat+sg | <E>g/dat+sg | <E>ъ/acc+sg | <E>ь/acc+sg | <E>омь/ins+sg | <E>омъ/ins+sg | <B>цz/loc+sg | <B>це/loc+sg | <B>че/voc+sg |
+<B>ци/nom+pl | <E>/gen+pl | <E>омъ/dat+pl | <E>ы/acc+pl | <E>ы/ins+pl | <B>цехъ/loc+pl | <B>цzхъ/loc+pl | <B>ци/voc+pl |
+<E>а/nom+dual | <E>а/acc+dual |  <E>а/voc+dual |
+<E>u/gen+dual |<E>у/gen+dual | <E>g/gen+dual | <E>u/loc+dual |<E>у/loc+dual | <E>g/loc+dual | 
+<E>ома/dat+dual | <E>ома/ins+dual ;
+
+#основы на "o" после "г", мужской род ("враг")
+G_O_MASC = <E>ъ/nom+sg | <E>ь/nom+sg | <E>а/gen+sg | <E>у/dat+sg | <E>u/dat+sg | <E>g/dat+sg | <E>ъ/acc+sg | <E>ь/acc+sg | <E>омь/ins+sg | <E>омъ/ins+sg | <B>sz/loc+sg | <B>sе/loc+sg | <B>зz/loc+sg | <B>зе/loc+sg | <B>же/voc+sg |
+<B>sи/nom+pl | <B>зи/nom+pl | <E>/gen+pl | <E>омъ/dat+pl | <E>ы/acc+pl | <E>ы/ins+pl | <B>sехъ/loc+pl | <B>szхъ/loc+pl | <B>зехъ/loc+pl | <B>зzхъ/loc+pl | <B>sи/voc+pl | <B>зи/voc+pl | 
+<E>а/nom+dual | <E>а/acc+dual |  <E>а/voc+dual |
+<E>u/gen+dual |<E>у/gen+dual | <E>g/gen+dual | <E>u/loc+dual |<E>у/loc+dual | <E>g/loc+dual | 
+<E>ома/dat+dual | <E>ома/ins+dual ;
+
+#основы на "o" после "х", мужской род ("грех")
+X_O_MASC = <E>ъ/nom+sg | <E>ь/nom+sg | <E>а/gen+sg | <E>у/dat+sg | <E>u/dat+sg | <E>g/dat+sg | <E>ъ/acc+sg | <E>ь/acc+sg | <E>омь/ins+sg | <E>омъ/ins+sg | <B>сz/loc+sg | <B>се/loc+sg | <B>ше/voc+sg |
+<B>си/nom+pl | <E>/gen+pl | <E>омъ/dat+pl | <E>ы/acc+pl | <E>ы/ins+pl | <B>sехъ/loc+pl | <B>szхъ/loc+pl | <B>сехъ/loc+pl | <B>сzхъ/loc+pl | <B>си/voc+pl| 
+<E>а/nom+dual | <E>а/acc+dual |  <E>а/voc+dual |
+<E>u/gen+dual |<E>у/gen+dual | <E>g/gen+dual | <E>u/loc+dual |<E>у/loc+dual | <E>g/loc+dual | 
+<E>ома/dat+dual | <E>ома/ins+dual ;
+
+
+#основы на "o" после "ч", мужской род ("врач")
+CH_O_MASC = <E>/nom+sg | <B>я/gen+sg | <B>r/gen+sg | <B>ю/dat+sg | <E>/acc+sg | <B>емь/ins+sg | <B>и/loc+sg | <B>ю/voc+sg |
+<B>и/nom+pl | <E>/gen+pl | <B>емъ/dat+pl | <B>y/acc+pl | <B>и/ins+pl | <B>ихъ/loc+pl | <B>и/voc+pl | 
+<B>я/nom+dual | <B>r/nom+dual | <B>я/acc+dual | <B>r/acc+dual | <B>я/voc+dual | <B>r/voc+dual |
+<B>ю/gen+dual | <B>ю/loc+dual |
+<B>ема/dat+dual | <B>ема/ins+dual ;
+
+#основы на "o" после "ж", мужской род ("мужь")
+ZH_O_MASC = <E>/nom+sg | <B>я/gen+sg | <B>r/gen+sg | <B>ю/dat+sg | <E>/acc+sg | <B>емь/ins+sg | <B>и/loc+sg | <B>ю/voc+sg |
+<B>и/nom+pl | <E>/gen+pl | <B>емъ/dat+pl | <B>y/acc+pl | <B>и/ins+pl | <B>ихъ/loc+pl | <B>и/voc+pl | 
+<B>я/nom+dual | <B>r/nom+dual | <B>я/acc+dual | <B>r/acc+dual | <B>я/voc+dual | <B>r/voc+dual |
+<B>ю/gen+dual | <B>ю/loc+dual |
+<B>ема/dat+dual | <B>ема/ins+dual ;
+
+#основы на "o": "jъ -> jь -> и", мужской род ("краи")
+J_O_MASC = <E>/nom+sg | <B>я/gen+sg | <B>r/gen+sg | <B>ю/dat+sg | <E>/acc+sg | <B>емь/ins+sg | <B>iемь/ins+sg | <B>и/loc+sg | <B>ю/voc+sg |
+<E>и/nom+pl | <E>/gen+pl | <B>емъ/dat+pl | <B>iемъ/dat+pl | <B>y/acc+pl | <B>и/ins+pl | <B>ихъ/loc+pl | <B>и/voc+pl | 
+<B>я/nom+dual | <B>r/nom+dual | <B>я/acc+dual | <B>r/acc+dual | <B>я/voc+dual | <B>r/voc+dual |
+<B>ю/gen+dual | <B>ю/loc+dual |
+<B>ема/dat+dual | <B>iема/dat+dual | <B>ема/ins+dual | <B>iема/ins+dual  ;
+
+#основы на "o": "iko -> ьць -> и", мужской род ("отьць")
+TS_O_MASC = <E>/nom+sg | <B>я/gen+sg | <B>r/gen+sg | <B>ю/dat+sg | <E>/acc+sg | <B>емь/ins+sg | <B>и/loc+sg | <B2>че/voc+sg |
+<E>и/nom+pl | <E>/gen+pl | <B>емъ/dat+pl | <B>y/acc+pl | <B>и/ins+pl | <B>ихъ/loc+pl | <B>и/voc+pl | 
+<B>я/nom+dual | <B>r/nom+dual | <B>я/acc+dual | <B>r/acc+dual | <B>я/voc+dual | <B>r/voc+dual |
+<B>ю/gen+dual | <B>ю/loc+dual |
+<B>ема/dat+dual | <B>ема/ins+dual ;
+
+#основы на "o", мужской род ("князь")
+KNYAZ_O_MASC = <E>/nom+sg | <B>я/gen+sg | <B>r/gen+sg | <B>ю/dat+sg | <E>/acc+sg | <B>емь/ins+sg | <B>и/loc+sg | <B2>же/voc+sg |
+<E>и/nom+pl | <E>/gen+pl | <B>емъ/dat+pl | <B>y/acc+pl | <B>и/ins+pl | <B>ихъ/loc+pl | <B>и/voc+pl | 
+<B>я/nom+dual | <B>r/nom+dual | <B>я/acc+dual | <B>r/acc+dual | <B>я/voc+dual | <B>r/voc+dual |
+<B>ю/gen+dual | <B>ю/loc+dual |
+<B>ема/dat+dual | <B>ема/ins+dual ;
+
+#основы на "o", средний род ("село")
+O_NEUTRAL = <E>/nom+sg | <B>а/gen+sg | <B>у/dat+sg | <B>u/dat+sg | <B>g/dat+sg | <E>/acc+sg | <B>омь/ins+sg | <B>омъ/ins+sg | <B>z/loc+sg | <B>е/loc+sg | <E>/voc+sg |
+<B>а/nom+pl | <B>ъ/gen+pl | <B>омъ/dat+pl | <B>а/acc+pl | <B>ы/ins+pl | <B>ехъ/loc+pl | <B>zхъ/loc+pl | <B>а/voc+pl |
+<B>z/nom+dual | <B>z/acc+dual | 
+<B>u/gen+dual |<B>у/gen+dual | <B>g/gen+dual | <B>u/loc+dual |<B>у/loc+dual | <B>g/loc+dual | 
+<B>ома/dat+dual | <B>ома/ins+dual ;
+
+#основы на "o", средний род, после "к" ("веко")
+K_O_NEUTRAL = <E>/nom+sg | <B>а/gen+sg | <B>у/dat+sg | <B>u/dat+sg | <B>g/dat+sg | <E>/acc+sg | <B>омь/ins+sg | <B>омъ/ins+sg | <B2>цz/loc+sg | <B2>це/loc+sg | <E>/voc+sg |
+<B>а/nom+pl | <B>ъ/gen+pl | <B>омъ/dat+pl | <B>а/acc+pl | <B>ы/ins+pl | <B2>цехъ/loc+pl | <B2>цzхъ/loc+pl | <B>а/voc+pl |
+<B2>цz/nom+dual | <B2>цz/acc+dual | 
+<B>u/gen+dual |<B>у/gen+dual | <B>g/gen+dual | <B>u/loc+dual |<B>у/loc+dual | <B>g/loc+dual | 
+<B>ома/dat+dual | <B>ома/ins+dual ;
+
+#основы на "o", средний род, после "г" ("иго")
+G_O_NEUTRAL = <E>/nom+sg | <B>а/gen+sg | <B>у/dat+sg | <B>u/dat+sg | <B>g/dat+sg | <E>/acc+sg | <B>омь/ins+sg | <B>омъ/ins+sg | <B2>sz/loc+sg | <B2>sе/loc+sg | <E>/voc+sg |
+<B>а/nom+pl | <B>ъ/gen+pl | <B>омъ/dat+pl | <B>а/acc+pl | <B>ы/ins+pl | <B2>sехъ/loc+pl | <B2>szхъ/loc+pl | <B>а/voc+pl |
+<B2>sz/nom+dual | <B2>sz/acc+dual | 
+<B>u/gen+dual |<B>у/gen+dual | <B>g/gen+dual | <B>u/loc+dual |<B>у/loc+dual | <B>g/loc+dual | 
+<B>ома/dat+dual | <B>ома/ins+dual ;
+
+#основы на "o", средний род, после мягкого согласного ("поле")
+SOFT_O = <E>/nom+sg | <B>я/gen+sg | <B>r/gen+sg | <B>ю/dat+sg | <B>j/dat+sg | <E>/acc+sg | <E>мь/ins+sg | <E>мъ/ins+sg | <B>и/loc+sg | <B>й/loc+sg | <E>/voc+sg |
+<B>я/nom+pl | <B>r/nom+pl | <B>ь/gen+pl | <E>мъ/dat+pl | <B>я/acc+pl | <B>r/acc+pl | <B>и/ins+pl | <B>ихъ/loc+pl | <B>iхъ/loc+pl | <B>я/voc+pl | <B>r/voc+pl |
+<B>и/nom+dual | <B2>и/acc+dual | <B>й/nom+dual | <B2>й/acc+dual | 
+<B>ю/gen+dual | <B>ю/loc+dual | <E>ма/dat+dual | <E>ма/ins+dual ;
+
+#основы на "o", средний род, после -ij ("знамение")
+IJE = <E>/nom+sg | <B>я/gen+sg | <B>r/gen+sg | <B>ю/dat+sg | <B>j/dat+sg | <E>/acc+sg | <E>мь/ins+sg | <E>мъ/ins+sg | <B>и/loc+sg | <B>й/loc+sg | <E>/voc+sg |
+<B>я/nom+pl | <B>r/nom+pl | <B>и/gen+pl | <E>мъ/dat+pl | <B>я/acc+pl | <B>r/acc+pl | <B>и/ins+pl | <B>ихъ/loc+pl | <B>iхъ/loc+pl | <B>я/voc+pl | <B>r/voc+pl |
+<B>и/nom+dual | <B2>и/acc+dual | <B>й/nom+dual | <B2>й/acc+dual | 
+<B>ю/gen+dual | <B>ю/loc+dual | <E>ма/dat+dual | <E>ма/ins+dual ;
+
+#основы на "o", средний род, после "c" ("лице")
+C_E = <E>/nom+sg | <B>я/gen+sg | <B>r/gen+sg | <B>ю/dat+sg | <B>j/dat+sg | <E>/acc+sg | <E>мь/ins+sg | <E>мъ/ins+sg | <B>и/loc+sg | <B>й/loc+sg | <E>/voc+sg |
+<B>я/nom+pl | <B>r/nom+pl | <B>ь/gen+pl | <E>мъ/dat+pl | <B>я/acc+pl | <B>r/acc+pl | <B>и/ins+pl | <B>ихъ/loc+pl | <B>iхъ/loc+pl | <B>я/voc+pl | <B>r/voc+pl |
+<B>и/nom+dual | <B2>и/acc+dual | <B>й/nom+dual | <B2>й/acc+dual | 
+<B>ю/gen+dual | <B>ю/loc+dual | <E>ма/dat+dual | <E>ма/ins+dual ;
+
+#основы на "u", мужской род, ("сын")
+U_MASC = <E>/nom+sg | <B>u/gen+sg | <B>у/gen+sg | <B>g/gen+sg | <B>ови/dat+sg | <E>мь/ins+sg | <B>омь/ins+sg | <B>у/loc+sg | <B>u/loc+sg | <B>g/loc+sg |
+<B>у/voc+sg | <B>u/voc+sg | <B>g/voc+sg |
+<B>ове/nom+pl | <B>овъ/gen+pl | <E>мъ/dat+pl | <B>омъ/dat+pl | <B>ы/acc+pl | <B>ъми/ins+pl | <B>ъхъ/loc+pl | <B>охъ/loc+pl | <B>ове/voc+pl | 
+<B>ы/nom+dual | <B>ы/acc+dual |
+<B>овu/gen+dual | <B>ову/gen+dual | <B>овu/loc+dual | <B>ову/loc+dual | <E>ма/dat+dual | <E>ма/ins+dual ;
+
+#основы на согласный, средний род ("имя")
+IMYA = <E>/nom+sg | <B>ене/gen+sg | <B>ени/dat+sg | <E>/acc+sg | <B>еньмь/ins+sg | <B>ени/loc+sg | <E>/voc+sg |
+<B>ена/nom+pl | <B>енъ/gen+pl | <B>еньмъ/dat+pl | <B>ена/acc+pl | <B>ены/ins+pl | <B>еньхъ/loc+pl | <E>ена/voc+pl | 
+<B>енz/nom+dual | <B>енz/acc+dual | <B>енz/voc+dual |
+<B>енu/gen+dual | <B>ену/gen+dual | <B>енu/loc+dual | <B>ену/loc+dual |
+<B>еньма/dat+dual | <B>еньма/ins+dual ;
+
+#основы на согласный, мужской род ("камень")
+KAMEN = <E>/nom+sg | <B>ене/gen+sg | <B>ени/dat+sg | <E>/acc+sg | <B>еньмь/ins+sg | <B>ени/loc+sg | <E>/voc+sg |
+<B>ене/nom+pl | <B>енъ/gen+pl | <B>еньмъ/dat+pl | <B>ени/acc+pl | <B>еньми/ins+pl | <B>еньхъ/loc+pl | <E>ене/voc+pl | 
+<B>ени/nom+dual | <B>ени/acc+dual | <B>ени/voc+dual |
+<B>енu/gen+dual | <B>ену/gen+dual | <B>енu/loc+dual | <B>ену/loc+dual |
+<B>еньма/dat+dual | <B>еньма/ins+dual ;
+
+#основы на согласный, мужской род ("день")
+DEN = <E>/nom+sg | <B>е/gen+sg | <B>и/dat+sg | <E>/acc+sg | <E>мь/ins+sg | <B>е/loc+sg | <E>/voc+sg |
+<B>е/nom+pl | <B>ъ/gen+pl | <E>мъ/dat+pl | <B>и/acc+pl | <E>ми/ins+pl | <E>хъ/loc+pl | <B>е/voc+pl | 
+<B>и/nom+dual | <B>и/acc+dual | <B>и/voc+dual |
+<B>u/gen+dual | <B>у/gen+dual | <B>u/loc+dual | <B>у/loc+dual |
+<E>ма/dat+dual | <E>ма/ins+dual ;
+
+#основы на согласный, суффикс -os/es, средний род ("небо", "слово", "тело", кроме "око", "ухо")
+SLOVO = <E>/nom+sg | <B>есе/gen+sg | <B>еси/dat+sg | <E>/acc+sg | <B>есьмь/ins+sg | <B>есе/loc+sg | <E>/voc+sg |
+<B>еса/nom+pl | <B>есъ/gen+pl | <B>есьмъ/dat+pl | <B>еса/acc+pl | <B>есы/ins+pl | <B>есьхъ/loc+pl | <E>еса/voc+pl | 
+<B>есz/nom+dual | <B>есz/acc+dual | <B>есz/voc+dual |
+<B>есu/gen+dual | <B>есу/gen+dual | <B>есu/loc+dual | <B>есу/loc+dual |
+<B>есьма/dat+dual | <B>есьма/ins+dual ;
+
+#основы на  суффикс -os/es, "око"
+OKO = <E>/nom+sg | <B2>чесе/gen+sg | <B2>чеси/dat+sg | <E>/acc+sg | <B2>чесьмь/ins+sg | <B2>чесе/loc+sg | <E>/voc+sg |
+<B2>чеса/nom+pl | <B2>чесъ/gen+pl | <B2>чесьмъ/dat+pl | <B2>чеса/acc+pl | <B2>чесы/ins+pl | <B2>чесьхъ/loc+pl | <B2>чеса/voc+pl | 
+<B2>чесz/nom+dual | <B2>чесz/acc+dual | <B2>чесz/voc+dual |
+<B2>чесu/gen+dual | <B2>чесу/gen+dual | <B2>чесu/loc+dual | <B2>чесу/loc+dual |
+<B2>чесьма/dat+dual | <B2>чесьма/ins+dual ;
+
+#основы на суффикс -os/es, "ухо"
+UXO = <E>/nom+sg | <B2>шесе/gen+sg | <B2>шеси/dat+sg | <E>/acc+sg | <B2>шесьмь/ins+sg | <B2>шесе/loc+sg | <E>/voc+sg |
+<B2>шеса/nom+pl | <B2>шесъ/gen+pl | <B2>шесьмъ/dat+pl | <B2>шеса/acc+pl | <B2>шесы/ins+pl | <B2>шесьхъ/loc+pl | <B2>шеса/voc+pl | 
+<B2>шесz/nom+dual | <B2>шесz/acc+dual | <B2>шесz/voc+dual |
+<B2>шесu/gen+dual | <B2>шесу/gen+dual | <B2>шесu/loc+dual | <B2>шесу/loc+dual |
+<B2>шесьма/dat+dual | <B2>шесьма/ins+dual ;
+
+#основы на суффикс -ent 
+SUFFIX_ENT = <E>/nom+sg | <E>те/gen+sg | <E>ти/dat+sg | <E>/acc+sg | <E>тьмь/ins+sg | <E>те/loc+sg | <E>/voc+sg |
+<E>та/nom+pl | <E>тъ/gen+pl | <E>тьмъ/dat+pl | <E>та/acc+pl | <E>ты/ins+pl | <E>тьхъ/loc+pl | <E>та/voc+pl | 
+<E>тz/nom+dual | <E>тz/acc+dual | <E>тz/voc+dual |
+<E>тu/gen+dual | <E>ту/gen+dual | <E>тu/loc+dual | <E>ту/loc+dual |
+<E>тьма/dat+dual | <E>тьма/ins+dual ;
+
+#основы на  суффикс -ter ("мати", "дъшти")
+SUFFIX_TER = <E>/nom+sg | <B>ере/gen+sg | <B>ери/dat+sg | <B>ерь/acc+sg | <B>ериj/ins+sg | <B>ерьj/ins+sg  | <B>ери/loc+sg | <E>/voc+sg |
+<B>ери/nom+pl | <B>еръ/gen+pl | <B>ерьмъ/dat+pl | <B>ери/acc+pl | <B>ерьми/ins+pl | <B>ерьхъ/loc+pl | <B>ери/voc+pl ;
+
+#основы на u: (/u/ долгое) ("свекры")
+U_LONG = <E>/nom+sg | <B>ъве/gen+sg | <B>ъви/dat+sg | <B>ъвь/acc+sg | <B>ъвиj/ins+sg | <B>ъвьj/ins+sg  | <B>ъве/loc+sg | <E>/voc+sg |
+<B>ъви/nom+pl | <B>ъвъ/gen+pl | <B>ъвамъ/dat+pl | <B>ъви/acc+pl | <B>ъвами/ins+pl | <B>ъвахъ/loc+pl | <B>ъви/voc+pl |
+<B>ъви/nom+dual | <B>ъви/acc+dual | <B>ъви/voc+dual |
+<B>ьвu/gen+dual | <B>ьву/gen+dual | <B>ьвu/loc+dual | <B>ьву/loc+dual |
+<B>ъвама/dat+dual | <B>ъвама/ins+dual ;
+
+#Прилагательные 
+#основы на твердыи согласный, в словаре указывается полная форма ("добрыи, злои")
+
+ADJ_HARD = <E>/nom+sg+m+long | <E>/acc+sg+m+long | <B2> (ъ/nom+sg+m+short | а/gen+sg+m | у/dat+sg+m+short | u/dat+sg+m+short | g/dat+sg+m+short | ъ/acc+sg+m+short | 
+омь/ins+sg+m+short | омъ/ins+sg+m+short | ымь/ins+sg+m+short | ымъ/ins+sg+m+short | ым/ins+sg+m+short | ом/ins+sg+m+short |  z/loc+sg+m+short | е/loc+sg+m+short |
+и/nom+pl+m+short | ы/nom+pl+m+short |  ъ/gen+pl+m+short | ыхъ/gen+pl+m+short | ых/gen+pl+m+short | ыхь/gen+pl+m+short | 
+омъ/dat+pl+m+short | ом/dat+pl+m+short | омь/dat+pl+m+short | ымъ/dat+pl+m+short | ым/dat+pl+m+short | ымь/dat+pl+m+short | 
+ы/acc+pl+m+short | ы/ins+pl+m+short | ехъ/loc+pl+m+short | zхъ/loc+pl+m+short | 
+а/nom+dual+m+short | а/acc+dual+m+short | u/gen+dual+m+short | у/gen+dual+m+short | g/gen+dual+m+short | 
+u/loc+dual+m+short | у/loc+dual+m+short | g/loc+dual+m+short | ома/dat+dual+m+short | ома/ins+dual+m+short | ыма/dat+dual+m+short | ыма/ins+dual+m+short |
+#женский род
+а/nom+sg+f+short | ы/gen+sg+f+short | е/dat+sg+f+short | z/dat+sg+f+short | g/acc+sg+f+short | u/acc+sg+f+short | у/acc+sg+f+short |
+оj/ins+sg+f+short | ою/ins+sg+f+short | wj/ins+sg+f+short | wю/ins+sg+f+short | z/loc+sg+f+short | е/loc+sg+f+short |
+ы/nom+pl+f+short | ъ/gen+pl+f+short | ыхъ/gen+pl+f+short | ых/gen+pl+f+short | ыхь/gen+pl+f+short | 
+амъ/dat+pl+f+short | ам/dat+pl+f+short | амь/dat+pl+f+short | ымъ/dat+pl+f+short | ым/dat+pl+f+short | ымь/dat+pl+f+short | 
+ы/acc+pl+f+short | ами/ins+pl+f+short | ахъ/loc+pl+f+short | ах/loc+pl+f+short | ахь/loc+pl+f+short |
+z/nom+dual+f+short | z/acc+dual+f+short | е/nom+dual+f+short | е/acc+dual+f+short | u/gen+dual+f+short | у/gen+dual+f+short | g/gen+dual+f+short | 
+u/loc+dual+f+short | у/loc+dual+f+short | g/loc+dual+f+short | ама/dat+dual+f+short | ама/ins+dual+f+short | ыма/dat+dual+f+short | ыма/ins+dual+f+short |
+#средний род
+о/nom+sg+n+short | w/nom+sg+n+short  | а/gen+sg+n | у/dat+sg+n+short | u/dat+sg+n+short | g/dat+sg+n+short | о/acc+sg+n+short | w/acc+sg+n+short | 
+ымь/ins+sg+n+short | ымъ/ins+sg+n+short | ым/ins+sg+n+short | ом/ins+sg+n+short | z/loc+sg+n+short | е/loc+sg+n+short |
+а/nom+pl+n+short | ы/nom+pl+n+short |  ъ/gen+pl+n+short | ыхъ/gen+pl+n+short | ых/gen+pl+n+short | ыхь/gen+pl+n+short | 
+омъ/dat+pl+n+short | ом/dat+pl+n+short | омь/dat+pl+n+short | ымъ/dat+pl+n+short | ым/dat+pl+n+short | ымь/dat+pl+n+short | 
+а/acc+pl+n+short | ы/ins+pl+n+short | ехъ/loc+pl+n+short | zхъ/loc+pl+n+short | 
+z/nom+dual+n+short | z/acc+dual+n+short | е/nom+dual+n+short | е/acc+dual+n+short | u/gen+dual+n+short | у/gen+dual+n+short | g/gen+dual+n+short | 
+u/loc+dual+n+short | у/loc+dual+n+short | g/loc+dual+n+short | ома/dat+dual+n+short | ома/ins+dual+n+short | ыма/dat+dual+n+short | ыма/ins+dual+n+short |
+
+####
+#местоименные формы
+ого/gen+sg+m | ог/gen+sg+m | wго/gen+sg+m | огw/gen+sg+m | wгw/gen+sg+m | wг/gen+sg+m | ово/gen+sg+m | ова/gen+sg+m | wво/gen+sg+m | wвw/gen+sg+m | wва/gen+sg+m |  
+уму/dat+sg+m+long | uму/dat+sg+m+long | gму/dat+sg+m+long | умu/dat+sg+m+long | uмu/dat+sg+m+long | gмu/dat+sg+m+long | 
+uмu/dat+sg+m+long | ому/dat+sg+m+long | wму/dat+sg+m+long | омg/dat+sg+m+long | омu/dat+sg+m+long | wмu/dat+sg+m+long | wмg/dat+sg+m+long | 
+uмu/dat+sg+m+long | 
+ымь/ins+sg+m+long | ымъ/ins+sg+m+long | ым/ins+sg+m+long | омь/loc+sg+m+long | ом/loc+sg+m+long | wмь/loc+sg+m+long | wм/loc+sg+m+long | омъ/loc+sg+m+long |
+ии/nom+pl+m+long | iи/nom+pl+m+long | ыхъ/gen+pl+m+long | ых/gen+pl+m+long | ыхь/gen+pl+m+long | 
+ымъ/dat+pl+m+long | ым/dat+pl+m+long | ымь/dat+pl+m+long | 
+ыz/acc+pl+m+long | ые/acc+pl+m+long | ыми/ins+pl+m+long | ыхъ/loc+pl+m+long | ых/loc+pl+m+long | ыхь/loc+pl+m+long |  
+ая/nom+dual+m+long | аr/nom+dual+m+long |  аr/acc+dual+m+long | ая/acc+dual+m+long | uю/gen+dual+m+long | dю/gen+dual+m+long | gю/gen+dual+m+long | 
+uю/loc+dual+m+long | dю/loc+dual+m+long | gю/loc+dual+m+long | ыма/dat+dual+m+long | ыма/ins+dual+m+long | 
+#женский род
+ая/nom+sg+f+long | аr/nom+sg+f+long | ыz/gen+sg+f+long | ые/gen+sg+f+long | ои/dat+sg+f+long | wи/dat+sg+f+long | gю/acc+sg+f+long | uю/acc+sg+f+long | dю/acc+sg+f+long |
+оj/ins+sg+f+long | ою/ins+sg+f+long | wj/ins+sg+f+long | wю/ins+sg+f+long | ои/loc+sg+f+long | wи/loc+sg+f+long |
+ыz/nom+pl+f+long | ые/nom+pl+f+long | ыхъ/gen+pl+f+long | ых/gen+pl+f+long | ыхь/gen+pl+f+long | 
+ымъ/dat+pl+f+long | ым/dat+pl+f+long | ымь/dat+pl+f+long | 
+ыz/acc+pl+f+long | ые/acc+pl+f+long | ыми/ins+pl+f+long | ыхъ/loc+pl+f+long | ых/loc+pl+f+long | ыхь/loc+pl+f+long |  
+zи/nom+dual+f+long | zи/acc+dual+f+long | е/nom+dual+f+long | е/acc+dual+f+long | u/gen+dual+f+long | у/gen+dual+f+long | g/gen+dual+f+long | 
+u/loc+dual+f+long | у/loc+dual+f+long | g/loc+dual+f+long | ама/dat+dual+f+long | ама/ins+dual+f+long | ыма/dat+dual+f+long | ыма/ins+dual+f+long |
+#средний род
+ое/nom+ag+n+long | wе/nom+ag+n+long | ого/gen+sg+n+long | ог/gen+sg+n+long | wго/gen+sg+n+long | огw/gen+sg+n+long | wгw/gen+sg+n+long | wг/gen+sg+n+long | ово/gen+sg+n+long | ова/gen+sg+n+long | wво/gen+sg+n+long | wвw/gen+sg+n+long | wва/gen+sg+n+long | 
+ое/acc+ag+n+long | wе/acc+ag+n+long |  
+уму/dat+sg+n+long | uму/dat+sg+n+long | gму/dat+sg+n+long | умu/dat+sg+n+long | uмu/dat+sg+n+long | gмu/dat+sg+n+long | 
+uмu/dat+sg+n+long | ому/dat+sg+n+long | wму/dat+sg+n+long | омg/dat+sg+n+long | омu/dat+sg+n+long | wмu/dat+sg+n+long | wмg/dat+sg+n+long | 
+uмu/dat+sg+n+long | 
+ымь/ins+sg+n+long | ымъ/ins+sg+n+long | ым/ins+sg+n+long | омь/loc+sg+n+long | ом/loc+sg+n+long | wмь/loc+sg+n+long | wм/loc+sg+n+long | омъ/loc+sg+n+long |
+ая/nom+pl+n+long | аr/nom+pl+n+long | ыхъ/gen+pl+n+long | ых/gen+pl+n+long | ыхь/gen+pl+n+long | 
+ымъ/dat+pl+n+long | ым/dat+pl+n+long | ымь/dat+pl+n+long | 
+аr/acc+pl+n+long | ая/acc+pl+n+long | ыми/ins+pl+n+long | ыхъ/loc+pl+n+long | ых/loc+pl+n+long | ыхь/loc+pl+n+long |  
+zи/nom+dual+n+long | еи/nom+dual+n+long |  еи/acc+dual+n+long | zи/acc+dual+n+long | uю/gen+dual+n+long | dю/gen+dual+n+long | gю/gen+dual+n+long | 
+uю/loc+dual+n+long | dю/loc+dual+n+long | gю/loc+dual+n+long | ыма/dat+dual+n+long | ыма/ins+dual+n+long );
+
+# основы на мягкий согласный, в словаре указывается полная форма ("синии")
+
+ADJ_SOFT = <B>/nom+pl+m+short | <E> ( /nom+sg+m+long | /acc+sg+m+long | /acc+dual+f+long | /nom+dual+f+long | /acc+dual+n+long | /nom+dual+n+long ) |  
+ <B2> (ь/nom+sg+m+short | ъ/nom+sg+m+short | r/gen+sg+m+short | я/gen+sg+m+short | а/gen+sg+m+short | 
+u/dat+sg+m+short | у/dat+sg+m+short | g/dat+sg+m+short | ю/dat+sg+m+short | ь/acc+sg+m+short | ъ/acc+sg+m+short | 
+емь/ins+sg+m+short | zмь/ins+sg+m+short | zмъ/ins+sg+m+short | zм/ins+sg+m+short | ем/ins+sg+m+short | емь/ins+sg+m+short | 
+и/loc+sg+m+short | й/loc+sg+m+short | 
+ъ/gen+pl+m+short | ь/gen+pl+m+short |
+емъ/dat+pl+m+short | ем/dat+pl+m+short | емь/dat+pl+m+short | zмъ/dat+pl+m+short | zм/dat+pl+m+short | zмь/dat+pl+m+short | 
+y/acc+pl+m+short | я/acc+pl+m+short | а/acc+pl+m+short |  и/ins+pl+m+short | й/ins+pl+m+short | 
+ихъ/loc+pl+m+short | их/loc+pl+m+short | iхъ/loc+pl+m+short | iх/loc+pl+m+short |  
+я/nom+dual+m+short | я/acc+dual+m+short | ю/gen+dual+m+short | ю/loc+dual+m+short | ема/dat+dual+m+short | ема/ins+dual+m+short |
+
+#женский род
+а/nom+sg+f+short | я/nom+sg+f+short | r/nom+sg+f+short |  y/gen+sg+f+short | z/gen+sg+f+short | я/gen+sg+f+short | е/gen+sg+f+short | 
+и/dat+sg+f+short | й/dat+sg+f+short | j/acc+sg+f+short | ю/acc+sg+f+short | g/acc+sg+f+short | u/acc+sg+f+short | у/acc+sg+f+short |
+еj/ins+sg+f+short | ею/ins+sg+f+short | оj/ins+sg+f+short | ою/ins+sg+f+short | и/loc+sg+f+short | й/loc+sg+f+short |
+и/nom+pl+f+short | y/nom+pl+f+short | r/nom+pl+f+short | я/nom+pl+f+short | а/nom+pl+f+short | ь/gen+pl+f+short | ъ/gen+pl+f+short | 
+ямъ/dat+pl+f+short | ям/dat+pl+f+short | ямь/dat+pl+f+short | амъ/dat+pl+f+short | ам/dat+pl+f+short | амь/dat+pl+f+short | 
+y/acc+pl+f+short | е/acc+pl+f+short | я/acc+pl+f+short | z/acc+pl+f+short | ями/ins+pl+f+short | ами/ins+pl+f+short | rми/ins+pl+f+short |
+яхъ/loc+pl+f+short | ях/loc+pl+f+short | яхь/loc+pl+f+short | ахъ/loc+pl+f+short | ах/loc+pl+f+short | ахь/loc+pl+f+short |
+и/nom+dual+f+short | и/acc+dual+f+short | й/nom+dual+f+short | й/acc+dual+f+short | ю/gen+dual+f+short | u/gen+dual+f+short | у/gen+dual+f+short | g/gen+dual+f+short | 
+ю/loc+dual+f+short | u/loc+dual+f+short | у/loc+dual+f+short | g/loc+dual+f+short | ама/dat+dual+f+short | ама/ins+dual+f+short |
+ама/dat+dual+f+short | ама/ins+dual+f+short |
+
+#средний род
+е/nom+sg+n+short | z/nom+sg+n+short  | я/gen+sg+m+short | r/gen+sg+m+short |  а/gen+sg+m+short | е/acc+sg+n+short | z/acc+sg+n+short | 
+емь/ins+sg+n+short | емъ/ins+sg+n+short | ем/ins+sg+n+short | и/loc+sg+n+short | й/loc+sg+n+short |
+и/nom+pl+n+short | ь/gen+pl+n+short | ъ/gen+pl+n+short | емъ/dat+pl+n+short | ем/dat+pl+n+short | емь/dat+pl+n+short | 
+y/acc+pl+n+short | r/acc+pl+n+short | я/acc+pl+n+short | а/acc+pl+n+short | и/ins+pl+n+short | й/ins+pl+n+short | ихъ/loc+pl+n+short | их/loc+pl+n+short | iхъ/loc+pl+n+short | iх/loc+pl+n+short |  
+iи/nom+dual+n+short | ии/nom+dual+n+short | iи/acc+dual+n+short | ии/acc+dual+n+short | u/gen+dual+n+short | у/gen+dual+n+short | g/gen+dual+n+short | 
+u/loc+dual+n+short | у/loc+dual+n+short | g/loc+dual+n+short | ема/dat+dual+n+short | ема/ins+dual+n+short |
+####
+#местоименные формы
+#мужской род
+его/gen+sg+m+long | егw/gen+sg+m+long | ег/gen+sg+m+long | zго/gen+sg+m+long | zгw/gen+sg+m+long | 
+zмu/dat+sg+m+long | zму/dat+sg+m+long | zмg/dat+sg+m+long | ему/dat+sg+m+long | емu/dat+sg+m+long | емg/dat+sg+m+long |
+iи/acc+sg+m+long | iи/nom+sg+m+long | имь/ins+sg+m+long | iмь/ins+sg+m+long | имъ/ins+sg+m+long | iмъ/ins+sg+m+long | им/ins+sg+m+long | iм/ins+sg+m+long | 
+емь/loc+sg+m+long | ем/loc+sg+m+long | емъ/loc+sg+m+long |
+ихъ/gen+pl+m+long | их/gen+pl+m+long | iхъ/gen+pl+m+long | iх/gen+pl+m+long |  
+имъ/dat+pl+m+long | им/dat+pl+m+long | имь/dat+pl+m+long | iмъ/dat+pl+m+long | iм/dat+pl+m+long | iмь/dat+pl+m+long | 
+zz/acc+pl+m+long | ими/ins+pl+m+long | iми/ins+pl+m+long | 
+ихъ/loc+pl+m+long | их/loc+pl+m+long | iхъ/loc+pl+m+long | iх/loc+pl+m+long |  
+яя/nom+dual+m+long | юю/gen+dual+m+long | юю/loc+dual+m+long | има/dat+dual+m+long | има/ins+dual+m+long |
+
+#женский род
+rr/nom+sg+f+long | яя/nom+sg+f+long | яr/nom+sg+f+long |  zz/gen+sg+f+long | zе/gen+sg+f+long | еz/gen+sg+f+long | ее/gen+sg+f+long | 
+еи/dat+sg+f+long | ей/dat+sg+f+long | zи/dat+sg+f+long | zй/dat+sg+f+long | 
+jj/acc+sg+f+long | юю/acc+sg+f+long | 
+еj/ins+sg+f+long | ею/ins+sg+f+long | еи/loc+sg+f+long | ей/loc+sg+f+long | zи/loc+sg+f+long | zй/loc+sg+f+long |
+zz/nom+pl+f+long | ее/nom+pl+f+long | 
+ихъ/gen+pl+n+long | их/gen+pl+n+long | iхъ/gen+pl+n+long | iх/gen+pl+n+long |  
+имъ/dat+pl+n+long | им/dat+pl+n+long | имь/dat+pl+n+long | iмъ/dat+pl+n+long | iм/dat+pl+n+long | iмь/dat+pl+n+long | 
+zz/acc+pl+f+long | ее/acc+pl+f+long | 
+ими/ins+pl+n+long | iми/ins+pl+n+long | 
+ихъ/loc+pl+n+long | их/loc+pl+n+long | iхъ/loc+pl+n+long | iх/loc+pl+n+long |  
+юю/gen+dual+n+long | юю/loc+dual+n+long | има/dat+dual+n+long | има/ins+dual+n+long |
+
+
+#средний род
+ее/nom+sg+n+long | его/gen+sg+n+long | егw/gen+sg+n+long | ег/gen+sg+n+long | zго/gen+sg+n+long | zгw/gen+sg+n+long | 
+zмu/dat+sg+n+long | zму/dat+sg+n+long | zмg/dat+sg+n+long | ему/dat+sg+n+long | емu/dat+sg+n+long | емg/dat+sg+n+long |
+ee/acc+sg+n+long | iи/nom+sg+n+long | имь/ins+sg+n+long | iмь/ins+sg+n+long | имъ/ins+sg+n+long | iмъ/ins+sg+n+long | им/ins+sg+n+long | iм/ins+sg+n+long | 
+емь/loc+sg+n+long | ем/loc+sg+n+long | емъ/loc+sg+n+long |
+яя/nom+sg+n+long | ихъ/gen+pl+n+long | их/gen+pl+n+long | iхъ/gen+pl+n+long | iх/gen+pl+n+long |  
+имъ/dat+pl+n+long | им/dat+pl+n+long | имь/dat+pl+n+long | iмъ/dat+pl+n+long | iм/dat+pl+n+long | iмь/dat+pl+n+long | 
+яя/acc+pl+n+long | ими/ins+pl+n+long | iми/ins+pl+n+long | 
+ихъ/loc+pl+n+long | их/loc+pl+n+long | iхъ/loc+pl+n+long | iх/loc+pl+n+long |  
+ии/nom+dual+n+long | юю/gen+dual+n+long | юю/loc+dual+n+long | има/dat+dual+n+long | има/ins+dual+n+long );
+
+
+#Местоимения
+
+# APRO
+ETOT = <E>/nom+sg+m | <E>/acc+Inan+sg+m | <B>го/gen+sg+m | <B>го/acc+An+sg+m | <B>го/gen+sg+n | 
+ <B>му/dat+sg+m | <B>му/dat+sg+n | <B2>им/ins+sg+m | <B2>им/ins+sg+n | <B>м/loc+sg+m | <B>м/loc+sg+n |
+ <B>/nom+sg+n | <B>/acc+sg+n | 
+ <B2>а/nom+sg+f | <B>й/gen+sg+f | <B>й/dat+sg+f | <B>й/ins+sg+f | <B>й/loc+sg+f | <B2>у/acc+sg+f |
+ <B2>и/nom+pl | <B2>и/acc+Inan+pl | <B2>их/gen+pl | <B2>их/acc+An+pl | <B2>их/loc+pl | <B2>им/dat+pl | 
+ <B2>ими/ins+pl ;
+
+KOTORYJ = <E>/nom+sg+m | <E>/acc+Inan+sg+m | <B2>ого/gen+sg+m | <B2>ого/acc+An+sg+m | <B2>ого/gen+sg+n | 
+ <B2>ому/dat+sg+m | <B2>ому/dat+sg+n | <B>м/ins+sg+m | <B>м/ins+sg+n | <B2>ом/loc+sg+m | <B2>ом/loc+sg+n |
+ <B2>ое/nom+sg+n | <B2>ое/acc+sg+n | 
+ <B2>ая/nom+sg+f | <B2>ой/gen+sg+f | <B2>ой/dat+sg+f | <B2>ой/ins+sg+f | <B2>ой/loc+sg+f  | 
+ <B2>ую/acc+sg+f |
+ <B>е/nom+pl | <B>е/acc+Inan+pl | <B>х/gen+pl | <B>х/acc+An+pl | <B>х/loc+pl | <B>м/dat+pl | 
+ <B>ми/ins+pl ;
+
+SVOJ = <E>/nom+sg+m | <E>/acc+Inan+sg+m | <B>его/gen+sg+m | <B>его/acc+An+sg+m | <B>его/gen+sg+n | 
+ <B>ему/dat+sg+m | <B>ему/dat+sg+n | <B>им/ins+sg+m | <B>им/ins+sg+n | <B>ем/loc+sg+m | <B>ем/loc+sg+n |
+ <B>е/nom+sg+n | <B>е/acc+sg+n | 
+ <B>я/nom+sg+f | <B>ей/gen+sg+f | <B>ей/dat+sg+f | <B>ей/ins+sg+f | <B>ей/loc+sg+f | <B>ю/acc+sg+f |
+ <B>и/nom+pl | <B>и/acc+Inan+pl | <B>их/gen+pl | <B>их/acc+An+pl | <B>их/loc+pl | <B>им/dat+pl | 
+ <B>ими/ins+pl 
+# варианты с буквой "ё"
+| <B> (ём/loc+sg+m | ём/loc+sg+n | ё/nom+sg+n | ё/acc+sg+n) 
+;
+
+VESJ = <E>/nom+sg+m | <E>/acc+Inan+sg+m | <B><L><B><R> (его/gen+sg+m | его/acc+An+sg+m | его/gen+sg+n | 
+ ему/dat+sg+m | ему/dat+sg+n | ем/ins+sg+m | ем/ins+sg+n | ем/loc+sg+m | ем/loc+sg+n |
+ е/nom+sg+n | е/acc+sg+n | 
+ я/nom+sg+f | ей/gen+sg+f | ей/dat+sg+f | ей/ins+sg+f | ей/loc+sg+f | 
+ ю/acc+sg+f |
+ е/nom+pl | е/acc+Inan+pl | ех/gen+pl | ех/acc+An+pl | ех/loc+pl | 
+ ем/dat+pl | еми/ins+pl )
+# варианты с буквой "ё"
+| <B><L><B><R> (ём/loc+sg+m | ём/loc+sg+n | ё/nom+sg+n | ё/acc+sg+n) 
+;
+
+
+# SPRO
+AZ = <E>/nom+1p+sg | <BW> ( мене/gen+1p+sg | мьнz/dat+1p+sg | ми/dat+1p+sg | мr/acc+1p+sg | мъноj/ins+1p+sg | мьнz/loc+1p+sg ) ;
+
+MY = <E>/nom+1p+pl | <BW> ( насъ/gen+1p+pl | намъ/dat+1p+pl | ны/dat+1p+pl  | ны/acc+1p+pl | нами/ins+1p+pl | насъ/loc+1p+pl ) ;
+
+TY = <E>/nom+2p+sg | <BW> ( тебе/gen+2p+sg | тебz/dat+2p+sg | ти/dat+2p+sg  | тr/acc+2p+sg | тобоj/ins+2p+sg | тебz/loc+2p+sg ) ;
+
+VY = <E>/nom+2p+pl | <BW> ( васъ/gen+2p+pl | вамъ/dat+2p+pl | вы/dat+2p+pl  | вы/acc+2p+pl | вами/ins+2p+pl | васъ/loc+2p+pl ) ;
+
+VE = <E>/nom+1p+dual | <BW> ( наю/gen+1p+dual | нама/dat+1p+dual  | на/acc+1p+dual | нама/ins+1p+dual | наю/loc+1p+dual ) ;
+
+VA = <E>/nom+2p+dual | <BW> ( ваю/gen+2p+dual | вама/dat+2p+dual | ва/acc+2p+dual | вама/ins+2p+dual | ваю/loc+2p+dual ) ;
+
+# DPRO - указательные местоимения
+
+#тъ, та, то
+
+# Местоименное склонение
+# твердый вариант
+
+PRO_HARD = <E>/nom+m+sg | <E>/acc+m+sg | <B> ( ыи/nom+m+sg | ого/gen+m+sg  | огw/gen+m+sg | wго/gen+m+sg | wгw/gen+m+sg |
+ омu/dat+m+sg | ому/dat+m+sg | омg/dat+m+sg | ыи/acc+m+sg | zмь/ins+m+sg | омь/loc+m+sg | 
+а/nom+f+sg | оj/gen+f+sg | ою/gen+f+sg | ои/dat+f+sg | wи/dat+f+sg | g/acc+f+sg | оj/ins+f+sg | ою/ins+f+sg | wю/ins+f+sg | wи/loc+f+sg | ои/loc+f+sg |
+о/nom+n+sg | ого/gen+n+sg  | огw/gen+n+sg | wго/gen+n+sg | wгw/gen+n+sg | омu/dat+n+sg | ому/dat+n+sg | омg/dat+n+sg | о/acc+m+sg | zмь/ins+n+sg | омь/loc+n+sg | 
+#
+и/nom+m+pl  | zхъ/gen+m+pl | zмъ/dat+m+pl | ы/acc+m+pl | zми/ins+m+pl | zхъ/loc+m+pl | 
+ы/nom+f+pl | zхъ/gen+f+pl | zмъ/dat+f+pl | ы/acc+f+pl | zми/ins+f+pl | zхъ/loc+f+pl | 
+а/nom+n+pl | zхъ/gen+n+pl  | zмъ/dat+n+pl | а/acc+m+pl | zми/ins+n+pl | zхъ/loc+n+pl |
+#
+а/nom+m+dual | а/acc+m+dual | оj/gen+m+dual | ою/gen+m+dual | оj/loc+m+dual | ою/loc+m+dual | zма/dat+m+dual | zма/ins+m+dual | 
+а/nom+f+dual | а/acc+f+dual | оj/gen+f+dual | ою/gen+f+dual | оj/loc+f+dual | ою/loc+f+dual | zма/dat+f+dual | zма/ins+f+dual |
+а/nom+n+dual | а/acc+n+dual | оj/gen+n+dual | ою/gen+n+dual | оj/loc+n+dual | ою/loc+n+dual | zма/dat+n+dual | zма/ins+n+dual |
+);
+
+# мягкий вариант
+PRO_SOFT = <E>/nom+m+sg | <E>/acc+m+sg | <E>/nom+m+pl  | <B> ( iего/gen+m+sg  | iегw/gen+m+sg | 
+ iемu/dat+m+sg | iему/dat+m+sg | iемg/dat+m+sg | емu/dat+m+sg | ему/dat+m+sg | емg/dat+m+sg | мь/ins+m+sg | iемь/loc+m+sg | емь/loc+m+sg |
+я/nom+f+sg | iey/gen+f+sg | ieи/dat+f+sg | ey/gen+f+sg | eи/dat+f+sg | j/acc+f+sg | iej/ins+f+sg | ieи/loc+f+sg | ej/ins+f+sg | eи/loc+f+sg | 
+ie/nom+n+sg | e/nom+n+sg | ieго/gen+n+sg  | eго/gen+n+sg | ieгw/gen+n+sg | eгw/gen+n+sg | ieмu/dat+n+sg | eмu/dat+n+sg | 
+ieму/dat+n+sg | eму/dat+n+sg | ieмg/dat+n+sg | eмg/dat+n+sg | ie/acc+m+sg | e/acc+m+sg | имь/ins+n+sg | ieмь/loc+n+sg | eмь/loc+n+sg 
+#
+ихъ/gen+m+pl | имъ/dat+m+pl | y/acc+m+pl | ими/ins+m+pl | ихъ/loc+m+pl | 
+y/nom+f+pl | ихъ/gen+f+pl | имъ/dat+f+pl | y/acc+f+pl | ими/ins+f+pl | ихъ/loc+f+pl | 
+я/nom+n+pl | ихъ/gen+n+pl  | имъ/dat+n+pl | я/acc+m+pl | ими/ins+n+pl | ихъ/loc+n+pl |
+# 
+я/nom+m+dual | я/acc+m+dual | iej/gen+m+dual | ieю/gen+m+dual | еj/loc+m+dual | ею/loc+m+dual | има/dat+m+dual | има/ins+m+dual | 
+и/nom+f+dual | и/acc+f+dual | iej/gen+f+dual | ieю/gen+f+dual | еj/loc+f+dual | ею/loc+f+dual | има/dat+f+dual | има/ins+f+dual |
+и/nom+n+dual | и/acc+n+dual | iej/gen+n+dual | ieю/gen+n+dual | еj/loc+n+dual | ею/loc+n+dual | има/dat+n+dual | има/ins+n+dual |
+);
+
+
+KTO = <E>/nom | <B3> (то/nom | ого/gen | омu/dat | ому/dat | омg/dat | ого/acc | омь/loc) | <B4>цzмь/ins ;
+
+CHTO = <E>/nom | <E>/acc | <B3> (то/nom | есо/gen | ьсо/gen | есого/gen | ьсого/gen | 
+чемu/dat | чему/dat | чемg/dat | чьсомu/dat | чьсому/dat | чьсомg/dat | чесомu/dat | чесому/dat | чесомg/dat | 
+то/acc | ьто/acc | имь/ins | емь/loc | есомь/loc) ;
+
+# коликъ, толикъ - по какому типу делать? могли склоняться и по именному,  и по местоименному типу 
+
+#сь
+SJ = <E> (/nom+m+sg | и/nom+m+sg | /acc+m+sg ) | 
+<B> ( ии/nom+m+sg | его/gen+m+sg  | егw/gen+m+sg | емu/dat+m+sg | ему/dat+m+sg | емg/dat+m+sg | имь/ins+m+sg | емь/loc+m+sg |
+# женский род, ед.ч. 
+и/nom+f+sg | ey/gen+f+sg | er/gen+f+sg | eя/gen+f+sg | eи/dat+f+sg | иj/acc+f+sg | ьj/acc+f+sg | ej/ins+f+sg | eю/ins+f+sg | eи/loc+f+sg | 
+e/nom+n+sg | его/gen+m+sg  | егw/gen+m+sg | емu/dat+m+sg | ему/dat+m+sg | емg/dat+m+sg | e/acc+n+sg | имь/ins+m+sg | емь/loc+m+sg |
+ 
+#
+ии/nom+m+pl | ихъ/gen+m+pl | имъ/dat+m+pl | ими/ins+m+pl | ихъ/loc+m+pl | 
+иy/nom+f+pl | ьy/ nom+f+pl | ихъ/gen+f+pl | имъ/dat+f+pl | иy/acc+f+pl | ьy/acc+f+pl | ими/ins+f+pl | ихъ/loc+f+pl | 
+и/nom+n+pl | и/acc+n+pl | ихъ/gen+n+pl | имъ/dat+n+pl | ими/ins+n+pl | ихъ/loc+n+pl | 
+# 
+ия/nom+f+dual | ья/nom+f+dual | eю/gen+m+dual | ею/loc+m+dual | има/dat+m+dual | има/ins+m+dual | 
+и/nom+f+dual | и/acc+f+dual | eю/gen+f+dual | има/dat+f+dual | има/ins+f+dual |
+и/nom+n+dual | и/acc+n+dual | eю/gen+n+dual | има/dat+n+dual | има/ins+n+dual );
+
+
+#весь
+VESJ = <E> (/nom+m+sg | и/nom+m+sg | /acc+m+sg ) | 
+<B> ( ии/nom+m+sg | его/gen+m+sg  | егw/gen+m+sg | емu/dat+m+sg | ему/dat+m+sg | емg/dat+m+sg | zмь/ins+m+sg | емь/ins+m+sg | емь/loc+m+sg |
+# женский род, ед.ч. 
+я/nom+f+sg | r/nom+f+sg | ey/gen+f+sg | er/gen+f+sg | eя/gen+f+sg | eи/dat+f+sg | j/acc+f+sg | ю/acc+f+sg | ej/ins+f+sg | eю/ins+f+sg | eи/loc+f+sg | 
+e/nom+n+sg | его/gen+m+sg  | егw/gen+m+sg | емu/dat+m+sg | ему/dat+m+sg | емg/dat+m+sg | e/acc+n+sg | zмь/ins+n+sg | емь/ins+n+sg | емь/loc+n+sg |
+ 
+#
+и/nom+m+pl | zхъ/gen+m+pl | ехъ/gen+m+pl | zмъ/dat+m+pl | емъ/dat+m+pl | y/acc+m+pl | r/acc+m+pl | я/acc+m+pl | ими/ins+m+pl | zми/ins+m+pl | еми/ins+m+pl | zхъ/loc+m+pl | ехъ/loc+m+pl | 
+y/nom+f+pl | r/nom+f+pl | я/nom+f+pl | zхъ/gen+f+pl | ехъ/gen+f+pl | y/acc+f+pl | r/acc+f+pl | я/acc+f+pl | zмъ/dat+f+pl | емъ/dat+f+pl | ими/ins+f+pl | zми/ins+f+pl | еми/ins+f+pl | zхъ/loc+f+pl | ехъ/loc+m+pl |и/nom+n+pl | и/acc+n+pl | ихъ/gen+n+pl | имъ/dat+n+pl | ими/ins+n+pl | ихъ/loc+n+pl | 
+r/nom+n+pl | я/nom+n+pl | zхъ/gen+n+pl | ехъ/gen+n+pl | zмъ/dat+n+pl | емъ/dat+n+pl| r/acc+n+pl | я/acc+n+pl |  zми/ins+n+pl | еми/ins+n+pl | zхъ/loc+n+pl | ехъ/loc+n+pl 
+);
+
+
+SEBYA = <BW> ( себе/gen | себе/dat | си/dat  | сr/acc | собоj/ins | себz/loc ) ;
+
+#глаголы
+
+BYTI  = <E>/inf | <BW> ( iесмь/fin+praes+1p+sg | есмь/fin+praes+1p+sg | iесмъ/fin+praes+1p+sg | есмъ/fin+praes+1p+sg |
+iеси/fin+praes+2p+sg | еси/fin+praes+2p+sg | 
+iестъ/fin+praes+3p+sg | естъ/fin+praes+3p+sg | iесть/fin+praes+3p+sg | есть/fin+praes+3p+sg |
+iесмъ/fin+praes+1p+pl | есмъ/fin+praes+1p+pl | iесмь/fin+praes+1p+pl | есмь/fin+praes+1p+pl |
+iесте/fin+praes+2p+pl | есте/fin+praes+2p+pl | сgть/fin+praes+3p+pl | сuть/fin+praes+3p+pl | суть/fin+praes+3p+pl |
+iесвz/fin+praes+1p+dual | есвz/fin+praes+1p+dual | iесве/fin+praes+1p+dual | есве/fin+praes+1p+dual |
+iеста/fin+praes+2p+dual | еста/fin+praes+2p+dual | 
+iесте/fin+praes+3p+dual | есте/fin+praes+3p+dual ;
+
+VEDATI  = <E>/inf | <B2>/fin+praes+1p+sg | <B4> ( мь/fin+praes+1p+sg | мъ/fin+praes+1p+sg |
+си/fin+praes+2p+sg | еси/fin+praes+2p+sg | 
+стъ/fin+praes+3p+sg | сть/fin+praes+3p+sg | 
+мъ/fin+praes+1p+pl | мь/fin+praes+1p+pl |
+сте/fin+praes+2p+pl | дrтъ/fin+praes+3p+pl | дятъ/fin+praes+3p+pl | дrть/fin+praes+3p+pl | дять/fin+praes+3p+pl |
+вz/fin+praes+1p+dual | ве/fin+praes+1p+dual | 
+ста/fin+praes+2p+dual | сте/fin+praes+3p+dual ;
+
+YASTI  = <E>/inf | <B> (ъ/fin+praes+3p+sg | ь/fin+praes+3p+sg | е/fin+praes+2p+pl | а/fin+praes+2p+dual | е/fin+praes+3p+dual ) | 
+<B2>си/fin+praes+2p+sg | <B3> ( мь/fin+praes+1p+sg | мъ/fin+praes+1p+sg |
+дyтъ/fin+praes+3p+pl | дyть/fin+praes+3p+pl   | дятъ/fin+praes+3p+pl  |  дrтъ/fin+praes+3p+pl | | дrть/fin+praes+3p+pl | дять/fin+praes+3p+pl |
+вz/fin+praes+1p+dual | ве/fin+praes+1p+dual );
+
+# 
+DATI  = <E>/inf | <B2> ( мь/fin+praes+1p+sg | мъ/fin+praes+1p+sg |
+си/fin+praes+2p+sg | 
+стъ/fin+praes+3p+sg | сть/fin+praes+3p+sg | 
+мъ/fin+praes+1p+pl | мь/fin+praes+1p+pl |
+сте/fin+praes+2p+pl | дrтъ/fin+praes+3p+pl | дятъ/fin+praes+3p+pl | дrть/fin+praes+3p+pl | дять/fin+praes+3p+pl |
+дuтъ/fin+praes+3p+pl | дgтъ/fin+praes+3p+pl | дутъ/fin+praes+3p+pl | дuть/fin+praes+3p+pl | дgть/fin+praes+3p+pl | дуть/fin+praes+3p+pl
+вz/fin+praes+1p+dual | ве/fin+praes+1p+dual | 
+ста/fin+praes+2p+dual | сте/fin+praes+3p+dual ;
+
+IMETI  = <E>/inf | <B3> ( амь/fin+praes+1p+sg | амъ/fin+praes+1p+sg |
+аши/fin+praes+2p+sg | атъ/fin+praes+3p+sg | ать/fin+praes+3p+sg | 
+амъ/fin+praes+1p+pl | амь/fin+praes+1p+pl |
+ате/fin+praes+2p+pl | gтъ/fin+praes+3p+pl | uтъ/fin+praes+3p+pl | утъ/fin+praes+3p+pl | gть/fin+praes+3p+pl | uть/fin+praes+3p+pl | уть/fin+praes+3p+pl |
+авz/fin+praes+1p+dual | аве/fin+praes+1p+dual | 
+ата/fin+praes+2p+dual | ате/fin+praes+3p+dual ;
+
+#настоящее время
+#основы на -е/-о
+EO_PRAES  = <E>/inf | <B3> ( амь/fin+praes+1p+sg | амъ/fin+praes+1p+sg |
+аши/fin+praes+2p+sg | атъ/fin+praes+3p+sg | ать/fin+praes+3p+sg | 
+амъ/fin+praes+1p+pl | амь/fin+praes+1p+pl |
+ате/fin+praes+2p+pl | gтъ/fin+praes+3p+pl | uтъ/fin+praes+3p+pl | утъ/fin+praes+3p+pl | gть/fin+praes+3p+pl | uть/fin+praes+3p+pl | уть/fin+praes+3p+pl |
+авz/fin+praes+1p+dual | аве/fin+praes+1p+dual | 
+ата/fin+praes+2p+dual | ате/fin+praes+3p+dual ;
