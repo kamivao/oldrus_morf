@@ -1,0 +1,65 @@
+# NooJ V3
+# Dictionary properties' definition
+#
+# Language is: ru
+#
+# Special Characters: '=' '+' '#' ' '
+#
+# Starting with V3, there is only ONE Dictionary Properties' Definition File per language;
+# it should always be named _properties.def and be saved in the "Lexical Analysis" folder
+#
+# List categories and properties associated with features
+#   Example: N_Number = m + f;
+# Special KEYWORD: INFLECTION lists all inflectional features (used by variables $xF)
+#   Example: INFLECTION = m + f + Present + Futur;
+
+INFLECTION = 1p | 2p | 3p |
+             m | f | n | sg | pl | dual |
+             nom | gen | dat | acc | ins | loc | voc |
+             Prep | NoPrep |
+             ger | inf | partcp | fin |
+             praes | praet | fut | aor | imp ;
+
+
+SPRO_Case =  nom | gen | dat | acc | ins | loc | voc ;
+SPRO_WPrep = NoPrep | Prep ;
+SPRO_Pers = 1p | 2p | 3p;
+SPRO_Nb = sg | pl | dual;
+SPRO_Gender =  m | f | n;
+
+APRO_Case =  nom | gen | dat | acc | ins | loc ;
+APRO_Anim = An | Inan ;
+APRO_Nb = sg | pl;
+APRO_Gender =  m | f | n;
+
+V_Repres = inf | partcp | l_partcp | ger | fin ;
+V_Tense = praes | praet | fut | aor | imperf_f | imperf_c | perf |;
+V_Pers = 1p | 2p | 3p;
+V_Nb = sg | pl | dual;
+V_Gender = m | f | n;
+V_Voice = Refl;
+
+N_Gender = m | f | n;
+N_Nb = sg | pl | dual;
+N_Case = nom | gen | dat | acc | ins | loc | voc;
+N_Anim = An | Inan ;
+N_Distribution = abst | anim | animcoll | coll | conc |
+                 prop | propcoll | inanimate | inanimatecoll;
+
+
+ADJ_Gender = m | f | n;
+ADJ_Nb = sg | pl;
+ADJ_Case = nom | gen | dat | acc | ins | loc | voc ;
+ADJ_ = Qual | Quan | Rel ;
+
+ADJ_Type = long | short;
+ADJ_Compare =  Pos |Comp | Sup;
+
+PARTCP_TYPE = long | short ; 
+PARTCP_Voice = act | pass ; 
+PARTCP_Gender = m | f | n;
+PARTCP_Nb = sg | pl;
+PARTCP_Case = nom | gen | dat | acc | ins | loc | voc ;
+
+
+
